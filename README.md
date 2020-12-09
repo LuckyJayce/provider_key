@@ -234,7 +234,7 @@ ChangeNotifierProvider =>  ChangeNotifierProvider**Key**
 
    ChangeNotifierProxyProvider5 => ChangeNotifierProxyProvider**Key5**
 
-示例：ChangeNotifierProxyProviderKey2 用法  
+示例：ChangeNotifierProxyProviderKey2 用法  ，详细代码查看[**calculator_page.dart**][https://github.com/LuckyJayce/provider_key/blob/master/example/lib/pages/demos/calculator_page.dart]
 
 ```
 class Number1Notifier extends ChangeNotifier {
