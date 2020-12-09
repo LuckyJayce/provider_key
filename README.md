@@ -78,13 +78,9 @@ class Counter with ChangeNotifier {
 ```
 
 ## 1.声明常量ProviderKey  
-**Demo 例如：分页加载书籍列表数据**
-
 	const _counterKey = ChangeNotifierProviderKey<Counter>();
 
 ## 2.注册Provider	
-**Demo 例如：显示书籍列表数据**
-
 	MultiProvider(
 	   providers: [
 	     _counterKey.provider((context) => Counter()),
@@ -92,7 +88,7 @@ class Counter with ChangeNotifier {
 	   child: PageContent(),
 	)
 
-## 3.监听和读取数据 ##    
+## 3.监听数据变化和读取数据 ##    
 
 #### <1> Consumer
 
@@ -121,7 +117,7 @@ _counterKey.selector<bool>(builder: (context, result, child) {
 
 对应原先Provider的Selector
 
-#### <3> 读取数据 read
+#### <3> read 读取数据 
 
 ```
 Counter conter = _counterKey.read(context);
@@ -135,9 +131,7 @@ Counter conter = Provider.of<Counter>(context, listen: false);
 Counter counter = context.read<Counter>();
 ```
 
-
-
-#### <4> 数据变化刷新页面 watch
+#### <4> watch 数据变化刷新当前widget  
 
 ```
 Counter conter = _counterKey.watch(context);
