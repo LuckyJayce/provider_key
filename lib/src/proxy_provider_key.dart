@@ -55,9 +55,12 @@ class ChangeNotifierProxyProviderKey<T, R extends ChangeNotifier>
 
 class ChangeNotifierProxyProviderKey2<T, T2, R extends ChangeNotifier>
     extends ProviderKey<R> {
+  final T name = null;
+  final T2 name2 = null;
+  final R name3 = null;
   const ChangeNotifierProxyProviderKey2.build(
       {@required ProviderKey<T> dependKey1,
-      @required ProviderKey<T> dependKey2,
+      @required ProviderKey<T2> dependKey2,
       @required ProviderType<R> selfType});
 
   ChangeNotifierProxyProvider2<T, T2, R> provider(
