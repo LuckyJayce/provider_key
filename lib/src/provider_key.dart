@@ -19,7 +19,7 @@ abstract class ProviderKey<T> extends ProviderType<T> {
   Selector<T, S> selector<S>({
     Key key,
     @required ValueWidgetBuilder<S> builder,
-    @required S Function(BuildContext, T) selector,
+    @required S Function(BuildContext context, T value) selector,
     ShouldRebuild<S> shouldRebuild,
     Widget child,
   }) {
