@@ -196,7 +196,9 @@ ProviderKey3.build(_number1Key, _number2Key, _number3Key).consumer(
 )
 ```
 
-#### <6>  InheritedProvider,ListenableProvider,ChangeNotifierProvider
+## 4. Providers
+
+#### <1> ProviderKey
 
  InheritedProvider => InheritedProvider**Key**
 
@@ -206,4 +208,109 @@ ChangeNotifierProvider =>  ChangeNotifierProvider**Key**
 
 .....
 
-#### <7> ProxyProvider
+#### <2> ProxyProviderKey
+
+1. **ProxyProvider**
+
+   ProxyProvider => ProxyProvider**Key**
+
+   ProxyProvider2 => ProxyProvider**Key2**
+
+   ProxyProvider3 => ProxyProvider**Key3**
+
+   ProxyProvider4 => ProxyProvider**Key4**
+
+   ProxyProvider5 => ProxyProvider**Key5**
+
+2. **ChangeNotifierProxyProvider**
+
+   ChangeNotifierProxyProvider => ChangeNotifierProxyProvider**Key**
+
+   ChangeNotifierProxyProvider2 => ChangeNotifierProxyProvider**Key2**
+
+   ChangeNotifierProxyProvider3 => ChangeNotifierProxyProvider**Key3**
+
+   ChangeNotifierProxyProvider4 => ChangeNotifierProxyProvider**Key4**
+
+   ChangeNotifierProxyProvider5 => ChangeNotifierProxyProvider**Key5**
+
+示例：ChangeNotifierProxyProviderKey2 用法  
+
+```
+class Number1Notifier extends ChangeNotifier {
+  int _number = 0;
+
+  set number(int number) {
+    _number = number;
+    notifyListeners();
+  }
+
+  get number => _number;
+}
+
+class Number2Notifier extends ChangeNotifier {
+  int _number = 0;
+
+  set number(int number) {
+    _number = number;
+    notifyListeners();
+  }
+
+  get number => _number;
+}
+
+class ResultNumberNotifier with ChangeNotifier {
+  int result = 0;
+  DateTime changeTime;
+
+  void setNumbers(int number, int number2) {
+    this.result = number + number2;
+    this.changeTime = DateTime.now();
+    notifyListeners();
+  }
+}
+```
+
+定义常量ProviderKey
+
+```
+const _number1Key = ChangeNotifierProviderKey<Number1Notifier>();
+const _number2Key = ChangeNotifierProviderKey<Number2Notifier>();
+const _result2Key = ChangeNotifierProxyProviderKey2.build(
+    dependKey1: _number1Key,
+    dependKey2: _number2Key,
+    selfType: ProviderType<ResultNumberNotifier>());
+```
+
+provider()
+
+```
+MultiProvider(
+  providers: [
+    _number1Key.provider((context) => Number1Notifier()),
+    _number2Key.provider((context) => Number2Notifier()),
+    _result2Key.provider(
+        (context) => ResultNumberNotifier(),
+        (context, number1, number2, previous) =>
+            previous..setNumbers(number1.number, number2.number)),
+  ],
+  child: PageContent(),
+);
+```
+
+consumer()
+
+```
+Container(
+  child: _result2Key.consumer((context, value, child) {
+    return Text(
+      'result:${value.result} \n changeTime:${DateFormat('yyyy-MM-dd hh:mm:ss').format(value.changeTime)}',
+      textAlign: TextAlign.center,
+      style: Theme.of(context)
+          .textTheme
+          .headline6
+          .copyWith(color: Colors.orange),
+    );
+  }),
+),
+```
