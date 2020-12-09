@@ -19,7 +19,7 @@
 # 使用方法
 
 ```
-//--this-------
+//--this difine-------
 const _counterKey = ChangeNotifierProviderKey<Counter>();
 
 class CounterPage extends StatelessWidget {
@@ -27,7 +27,7 @@ class CounterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-         //--this-------
+         //--this provider-------
         _counterKey.provider((context) => Counter()),
       ],
       child: PageContent(),
@@ -45,7 +45,7 @@ class PageContent extends StatelessWidget {
       body: Column(
           children:[
             Text('You have pushed the button this many times:'),
-            //--this-------
+            //--this  consumer-------
             _counterKey.consumer(
               (context, counter, child) {
                 return Text(
@@ -57,7 +57,7 @@ class PageContent extends StatelessWidget {
           ],
         ),
       floatingActionButton: FloatingActionButton(
-        //--this-------
+        //--this read-------
         onPressed: () => _counterKey.read(context).increment(),
         tooltip: 'Increment',
         child: const Icon(Icons.add),
