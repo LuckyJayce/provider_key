@@ -108,6 +108,58 @@ class ProviderKey3<T1, T2, T3> {
   }
 }
 
+class FutureProviderKey<T extends Listenable> extends ProviderKey<T> {
+  const FutureProviderKey();
+
+  FutureProvider<T> provider({
+    Key key,
+    @required Create<Future<T>> create,
+    T initialData,
+    ErrorBuilder<T> catchError,
+    UpdateShouldNotify<T> updateShouldNotify,
+    bool lazy,
+    TransitionBuilder builder,
+    Widget child,
+  }) {
+    return FutureProvider<T>(
+      key: key,
+      create: create,
+      initialData: initialData,
+      catchError: catchError,
+      updateShouldNotify: updateShouldNotify,
+      lazy: lazy,
+      builder: builder,
+      child: child,
+    );
+  }
+}
+
+class StreamProviderKey<T extends Listenable> extends ProviderKey<T> {
+  const StreamProviderKey();
+
+  StreamProvider<T> provider({
+    Key key,
+    @required Create<Stream<T>> create,
+    T initialData,
+    ErrorBuilder<T> catchError,
+    UpdateShouldNotify<T> updateShouldNotify,
+    bool lazy,
+    TransitionBuilder builder,
+    Widget child,
+  }) {
+    return StreamProvider<T>(
+      key: key,
+      create: create,
+      initialData: initialData,
+      catchError: catchError,
+      updateShouldNotify: updateShouldNotify,
+      lazy: lazy,
+      builder: builder,
+      child: child,
+    );
+  }
+}
+
 class ListenableProviderKey<T extends Listenable> extends ProviderKey<T> {
   const ListenableProviderKey();
 
