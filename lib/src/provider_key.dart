@@ -108,6 +108,76 @@ class ProviderKey3<T1, T2, T3> {
   }
 }
 
+class ProviderKey4<T1, T2, T3, T4> {
+  const ProviderKey4.build(ProviderKey<T1> key1, ProviderKey<T2> key2,
+      ProviderKey<T3> key3, ProviderKey<T4> key4);
+
+  Consumer4<T1, T2, T3, T4> consumer(
+    Widget Function(BuildContext context, T1 value1, T2 value2, T3 value3,
+            T4 value4, Widget child)
+        builder, {
+    Key key,
+    Widget child,
+  }) {
+    return Consumer4<T1, T2, T3, T4>(
+      key: key,
+      builder: builder,
+      child: child,
+    );
+  }
+
+  Selector4<T1, T2, T3, T4, S> selector<S>({
+    Key key,
+    @required ValueWidgetBuilder<S> builder,
+    @required S Function(BuildContext, T1, T2, T3, T4) selector,
+    ShouldRebuild<S> shouldRebuild,
+    Widget child,
+  }) {
+    return Selector4<T1, T2, T3, T4, S>(
+      key: key,
+      builder: builder,
+      selector: selector,
+      shouldRebuild: shouldRebuild,
+      child: child,
+    );
+  }
+}
+
+class ProviderKey5<T1, T2, T3, T4, T5> {
+  const ProviderKey5.build(ProviderKey<T1> key1, ProviderKey<T2> key2,
+      ProviderKey<T3> key3, ProviderKey<T4> key4, ProviderKey<T4> key5);
+
+  Consumer5<T1, T2, T3, T4, T5> consumer(
+    Widget Function(BuildContext context, T1 value1, T2 value2, T3 value3,
+            T4 value4, T5 value5, Widget child)
+        builder, {
+    Key key,
+    Widget child,
+  }) {
+    return Consumer5<T1, T2, T3, T4, T5>(
+      key: key,
+      builder: builder,
+      child: child,
+    );
+  }
+
+  Selector5<T1, T2, T3, T4, T5, S> selector<S>({
+    Key key,
+    @required ValueWidgetBuilder<S> builder,
+    @required S Function(BuildContext, T1, T2, T3, T4, T5) selector,
+    ShouldRebuild<S> shouldRebuild,
+    Widget child,
+  }) {
+    return Selector5<T1, T2, T3, T4, T5, S>(
+      key: key,
+      builder: builder,
+      selector: selector,
+      shouldRebuild: shouldRebuild,
+      child: child,
+    );
+  }
+}
+
 class FutureProviderKey<T extends Listenable> extends ProviderKey<T> {
   const FutureProviderKey();
 
