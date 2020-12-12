@@ -13,7 +13,11 @@ abstract class ProviderKey<T> extends ProviderType<T> {
     Key key,
     Widget child,
   }) {
-    return Consumer(builder: builder);
+    return Consumer(
+      builder: builder,
+      key: key,
+      child: child,
+    );
   }
 
   Selector<T, S> selector<S>({
