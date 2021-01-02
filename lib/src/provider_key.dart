@@ -182,7 +182,7 @@ class ProviderKey5<T1, T2, T3, T4, T5> {
   }
 }
 
-class FutureProviderKey<T extends Listenable> extends ProviderKey<T> {
+class FutureProviderKey<T> extends ProviderKey<T> {
   const FutureProviderKey();
 
   FutureProvider<T> provider({
@@ -208,7 +208,7 @@ class FutureProviderKey<T extends Listenable> extends ProviderKey<T> {
   }
 }
 
-class StreamProviderKey<T extends Listenable> extends ProviderKey<T> {
+class StreamProviderKey<T> extends ProviderKey<T> {
   const StreamProviderKey();
 
   StreamProvider<T> provider({
