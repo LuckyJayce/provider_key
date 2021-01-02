@@ -185,9 +185,9 @@ class ProviderKey5<T1, T2, T3, T4, T5> {
 class FutureProviderKey<T> extends ProviderKey<T> {
   const FutureProviderKey();
 
-  FutureProvider<T> provider({
+  FutureProvider<T> provider(
+    Create<Future<T>> create, {
     Key key,
-    @required Create<Future<T>> create,
     T initialData,
     ErrorBuilder<T> catchError,
     UpdateShouldNotify<T> updateShouldNotify,
@@ -211,9 +211,9 @@ class FutureProviderKey<T> extends ProviderKey<T> {
 class StreamProviderKey<T> extends ProviderKey<T> {
   const StreamProviderKey();
 
-  StreamProvider<T> provider({
+  StreamProvider<T> provider(
+    Create<Stream<T>> create, {
     Key key,
-    @required Create<Stream<T>> create,
     T initialData,
     ErrorBuilder<T> catchError,
     UpdateShouldNotify<T> updateShouldNotify,
