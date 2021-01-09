@@ -194,6 +194,8 @@ ProviderKey3.build(_number1Key, _number2Key, _number3Key).consumer(
 
 #### <1> ProviderKey
 
+Provider => Provider**Key**
+
  InheritedProvider => InheritedProvider**Key**
 
 ListenableProvider => ListenableProvider**Key**
