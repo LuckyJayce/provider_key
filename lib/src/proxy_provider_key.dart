@@ -29,7 +29,129 @@ class ListenableProxyProviderKey<T, R extends Listenable>
   }
 }
 
-class ProxyProviderKey<T, R extends Listenable> extends ProviderKey<R> {
+class ListenableProxyProviderKey2<T, T2, R extends Listenable>
+    extends ProviderKey<R> {
+  const ListenableProxyProviderKey2.build(
+      {@required ProviderKey<T> dependKey1,
+      @required ProviderKey<T2> dependKey2,
+      @required ProviderType<R> selfType});
+
+  ListenableProxyProvider2<T, T2, R> provider(
+    Create<R> create, {
+    Key key,
+    @required ProxyProviderBuilder2<T, T2, R> update,
+    UpdateShouldNotify<R> updateShouldNotify,
+    Dispose<R> dispose,
+    bool lazy,
+    TransitionBuilder builder,
+    Widget child,
+  }) {
+    return ListenableProxyProvider2<T, T2, R>(
+      key: key,
+      create: create,
+      update: update,
+      dispose: dispose,
+      lazy: lazy,
+      builder: builder,
+      child: child,
+    );
+  }
+}
+
+class ListenableProxyProviderKey3<T, T2, T3, R extends Listenable>
+    extends ProviderKey<R> {
+  const ListenableProxyProviderKey3.build(
+      {@required ProviderKey<T> dependKey1,
+      @required ProviderKey<T2> dependKey2,
+      @required ProviderKey<T3> dependKey3,
+      @required ProviderType<R> selfType});
+
+  ListenableProxyProvider3<T, T2, T3, R> provider(
+    Create<R> create, {
+    Key key,
+    @required ProxyProviderBuilder3<T, T2, T3, R> update,
+    UpdateShouldNotify<R> updateShouldNotify,
+    Dispose<R> dispose,
+    bool lazy,
+    TransitionBuilder builder,
+    Widget child,
+  }) {
+    return ListenableProxyProvider3<T, T2, T3, R>(
+      key: key,
+      create: create,
+      update: update,
+      dispose: dispose,
+      lazy: lazy,
+      builder: builder,
+      child: child,
+    );
+  }
+}
+
+class ListenableProxyProviderKey4<T, T2, T3, T4, R extends Listenable>
+    extends ProviderKey<R> {
+  const ListenableProxyProviderKey4.build(
+      {@required ProviderKey<T> dependKey1,
+      @required ProviderKey<T2> dependKey2,
+      @required ProviderKey<T3> dependKey3,
+      @required ProviderKey<T4> dependKey4,
+      @required ProviderType<R> selfType});
+
+  ListenableProxyProvider4<T, T2, T3, T4, R> provider(
+    Create<R> create, {
+    Key key,
+    @required ProxyProviderBuilder4<T, T2, T3, T4, R> update,
+    UpdateShouldNotify<R> updateShouldNotify,
+    Dispose<R> dispose,
+    bool lazy,
+    TransitionBuilder builder,
+    Widget child,
+  }) {
+    return ListenableProxyProvider4<T, T2, T3, T4, R>(
+      key: key,
+      create: create,
+      update: update,
+      dispose: dispose,
+      lazy: lazy,
+      builder: builder,
+      child: child,
+    );
+  }
+}
+
+class ListenableProxyProviderKey5<T, T2, T3, T4, T5, R extends Listenable>
+    extends ProviderKey<R> {
+  const ListenableProxyProviderKey5.build(
+      {@required ProviderKey<T> dependKey1,
+      @required ProviderKey<T2> dependKey2,
+      @required ProviderKey<T3> dependKey3,
+      @required ProviderKey<T4> dependKey4,
+      @required ProviderKey<T5> dependKey5,
+      @required ProviderType<R> selfType});
+
+  ListenableProxyProvider5<T, T2, T3, T4, T5, R> provider(
+    Create<R> create, {
+    Key key,
+    @required ProxyProviderBuilder5<T, T2, T3, T4, T5, R> update,
+    UpdateShouldNotify<R> updateShouldNotify,
+    Dispose<R> dispose,
+    bool lazy,
+    TransitionBuilder builder,
+    Widget child,
+  }) {
+    return ListenableProxyProvider5<T, T2, T3, T4, T5, R>(
+      key: key,
+      create: create,
+      update: update,
+      dispose: dispose,
+      lazy: lazy,
+      builder: builder,
+      child: child,
+    );
+  }
+}
+
+class ProxyProviderKey<T, R> extends ProviderKey<R> {
   const ProxyProviderKey.build(
       {@required ProviderKey<T> dependKey, @required ProviderType<R> selfType});
 
@@ -56,7 +178,7 @@ class ProxyProviderKey<T, R extends Listenable> extends ProviderKey<R> {
   }
 }
 
-class ProxyProviderKey2<T, T2, R extends Listenable> extends ProviderKey<R> {
+class ProxyProviderKey2<T, T2, R> extends ProviderKey<R> {
   const ProxyProviderKey2.build(
       {@required ProviderKey<T> dependKey1,
       @required ProviderKey<T2> dependKey2,
@@ -85,8 +207,7 @@ class ProxyProviderKey2<T, T2, R extends Listenable> extends ProviderKey<R> {
   }
 }
 
-class ProxyProviderKey3<T, T2, T3, R extends Listenable>
-    extends ProviderKey<R> {
+class ProxyProviderKey3<T, T2, T3, R> extends ProviderKey<R> {
   const ProxyProviderKey3.build(
       {@required ProviderKey<T> dependKey1,
       @required ProviderKey<T2> dependKey2,
@@ -116,8 +237,7 @@ class ProxyProviderKey3<T, T2, T3, R extends Listenable>
   }
 }
 
-class ProxyProviderKey4<T, T2, T3, T4, R extends Listenable>
-    extends ProviderKey<R> {
+class ProxyProviderKey4<T, T2, T3, T4, R> extends ProviderKey<R> {
   const ProxyProviderKey4.build(
       {@required ProviderKey<T> dependKey1,
       @required ProviderKey<T2> dependKey2,
@@ -148,8 +268,7 @@ class ProxyProviderKey4<T, T2, T3, T4, R extends Listenable>
   }
 }
 
-class ProxyProviderKey5<T, T2, T3, T4, T5, R extends Listenable>
-    extends ProviderKey<R> {
+class ProxyProviderKey5<T, T2, T3, T4, T5, R> extends ProviderKey<R> {
   const ProxyProviderKey5.build(
       {@required ProviderKey<T> dependKey1,
       @required ProviderKey<T2> dependKey2,
