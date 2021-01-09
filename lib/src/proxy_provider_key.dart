@@ -4,9 +4,9 @@ import 'package:provider/provider.dart';
 import 'provider_key.dart';
 
 class ListenableProxyProviderKey<T, R extends Listenable>
-    extends ProviderKey<R> {
+    extends ProviderType<R> {
   const ListenableProxyProviderKey.build(
-      {@required ProviderKey<T> dependKey, @required ProviderType<R> selfType});
+      {@required ProviderType<T> dependKey, @required ProviderType<R> selfType});
 
   ListenableProxyProvider<T, R> provider(
     Create<R> create,
@@ -30,10 +30,10 @@ class ListenableProxyProviderKey<T, R extends Listenable>
 }
 
 class ListenableProxyProviderKey2<T, T2, R extends Listenable>
-    extends ProviderKey<R> {
+    extends ProviderType<R> {
   const ListenableProxyProviderKey2.build(
-      {@required ProviderKey<T> dependKey1,
-      @required ProviderKey<T2> dependKey2,
+      {@required ProviderType<T> dependKey1,
+      @required ProviderType<T2> dependKey2,
       @required ProviderType<R> selfType});
 
   ListenableProxyProvider2<T, T2, R> provider(
@@ -59,11 +59,11 @@ class ListenableProxyProviderKey2<T, T2, R extends Listenable>
 }
 
 class ListenableProxyProviderKey3<T, T2, T3, R extends Listenable>
-    extends ProviderKey<R> {
+    extends ProviderType<R> {
   const ListenableProxyProviderKey3.build(
-      {@required ProviderKey<T> dependKey1,
-      @required ProviderKey<T2> dependKey2,
-      @required ProviderKey<T3> dependKey3,
+      {@required ProviderType<T> dependKey1,
+      @required ProviderType<T2> dependKey2,
+      @required ProviderType<T3> dependKey3,
       @required ProviderType<R> selfType});
 
   ListenableProxyProvider3<T, T2, T3, R> provider(
@@ -89,12 +89,12 @@ class ListenableProxyProviderKey3<T, T2, T3, R extends Listenable>
 }
 
 class ListenableProxyProviderKey4<T, T2, T3, T4, R extends Listenable>
-    extends ProviderKey<R> {
+    extends ProviderType<R> {
   const ListenableProxyProviderKey4.build(
-      {@required ProviderKey<T> dependKey1,
-      @required ProviderKey<T2> dependKey2,
-      @required ProviderKey<T3> dependKey3,
-      @required ProviderKey<T4> dependKey4,
+      {@required ProviderType<T> dependKey1,
+      @required ProviderType<T2> dependKey2,
+      @required ProviderType<T3> dependKey3,
+      @required ProviderType<T4> dependKey4,
       @required ProviderType<R> selfType});
 
   ListenableProxyProvider4<T, T2, T3, T4, R> provider(
@@ -120,13 +120,13 @@ class ListenableProxyProviderKey4<T, T2, T3, T4, R extends Listenable>
 }
 
 class ListenableProxyProviderKey5<T, T2, T3, T4, T5, R extends Listenable>
-    extends ProviderKey<R> {
+    extends ProviderType<R> {
   const ListenableProxyProviderKey5.build(
-      {@required ProviderKey<T> dependKey1,
-      @required ProviderKey<T2> dependKey2,
-      @required ProviderKey<T3> dependKey3,
-      @required ProviderKey<T4> dependKey4,
-      @required ProviderKey<T5> dependKey5,
+      {@required ProviderType<T> dependKey1,
+      @required ProviderType<T2> dependKey2,
+      @required ProviderType<T3> dependKey3,
+      @required ProviderType<T4> dependKey4,
+      @required ProviderType<T5> dependKey5,
       @required ProviderType<R> selfType});
 
   ListenableProxyProvider5<T, T2, T3, T4, T5, R> provider(
@@ -151,9 +151,9 @@ class ListenableProxyProviderKey5<T, T2, T3, T4, T5, R extends Listenable>
   }
 }
 
-class ProxyProviderKey<T, R> extends ProviderKey<R> {
+class ProxyProviderKey<T, R> extends ProviderType<R> {
   const ProxyProviderKey.build(
-      {@required ProviderKey<T> dependKey, @required ProviderType<R> selfType});
+      {@required ProviderType<T> dependKey, @required ProviderType<R> selfType});
 
   ProxyProvider<T, R> provider(
     Create<R> create, {
@@ -178,10 +178,10 @@ class ProxyProviderKey<T, R> extends ProviderKey<R> {
   }
 }
 
-class ProxyProviderKey2<T, T2, R> extends ProviderKey<R> {
+class ProxyProviderKey2<T, T2, R> extends ProviderType<R> {
   const ProxyProviderKey2.build(
-      {@required ProviderKey<T> dependKey1,
-      @required ProviderKey<T2> dependKey2,
+      {@required ProviderType<T> dependKey1,
+      @required ProviderType<T2> dependKey2,
       @required ProviderType<R> selfType});
 
   ProxyProvider2<T, T2, R> provider(
@@ -207,11 +207,11 @@ class ProxyProviderKey2<T, T2, R> extends ProviderKey<R> {
   }
 }
 
-class ProxyProviderKey3<T, T2, T3, R> extends ProviderKey<R> {
+class ProxyProviderKey3<T, T2, T3, R> extends ProviderType<R> {
   const ProxyProviderKey3.build(
-      {@required ProviderKey<T> dependKey1,
-      @required ProviderKey<T2> dependKey2,
-      @required ProviderKey<T3> dependKey3,
+      {@required ProviderType<T> dependKey1,
+      @required ProviderType<T2> dependKey2,
+      @required ProviderType<T3> dependKey3,
       @required ProviderType<R> selfType});
 
   ProxyProvider3<T, T2, T3, R> provider(
@@ -237,12 +237,12 @@ class ProxyProviderKey3<T, T2, T3, R> extends ProviderKey<R> {
   }
 }
 
-class ProxyProviderKey4<T, T2, T3, T4, R> extends ProviderKey<R> {
+class ProxyProviderKey4<T, T2, T3, T4, R> extends ProviderType<R> {
   const ProxyProviderKey4.build(
-      {@required ProviderKey<T> dependKey1,
-      @required ProviderKey<T2> dependKey2,
-      @required ProviderKey<T3> dependKey3,
-      @required ProviderKey<T4> dependKey4,
+      {@required ProviderType<T> dependKey1,
+      @required ProviderType<T2> dependKey2,
+      @required ProviderType<T3> dependKey3,
+      @required ProviderType<T4> dependKey4,
       @required ProviderType<R> selfType});
 
   ProxyProvider4<T, T2, T3, T4, R> provider(
@@ -268,13 +268,13 @@ class ProxyProviderKey4<T, T2, T3, T4, R> extends ProviderKey<R> {
   }
 }
 
-class ProxyProviderKey5<T, T2, T3, T4, T5, R> extends ProviderKey<R> {
+class ProxyProviderKey5<T, T2, T3, T4, T5, R> extends ProviderType<R> {
   const ProxyProviderKey5.build(
-      {@required ProviderKey<T> dependKey1,
-      @required ProviderKey<T2> dependKey2,
-      @required ProviderKey<T3> dependKey3,
-      @required ProviderKey<T4> dependKey4,
-      @required ProviderKey<T5> dependKey5,
+      {@required ProviderType<T> dependKey1,
+      @required ProviderType<T2> dependKey2,
+      @required ProviderType<T3> dependKey3,
+      @required ProviderType<T4> dependKey4,
+      @required ProviderType<T5> dependKey5,
       @required ProviderType<R> selfType});
 
   ProxyProvider5<T, T2, T3, T4, T5, R> provider(
@@ -301,9 +301,9 @@ class ProxyProviderKey5<T, T2, T3, T4, T5, R> extends ProviderKey<R> {
 }
 
 class ChangeNotifierProxyProviderKey<T, R extends ChangeNotifier>
-    extends ProviderKey<R> {
+    extends ProviderType<R> {
   const ChangeNotifierProxyProviderKey.build(
-      {@required ProviderKey<T> dependKey, @required ProviderType<R> selfType});
+      {@required ProviderType<T> dependKey, @required ProviderType<R> selfType});
 
   ChangeNotifierProxyProvider<T, R> provider(
     Create<R> create,
@@ -325,10 +325,10 @@ class ChangeNotifierProxyProviderKey<T, R extends ChangeNotifier>
 }
 
 class ChangeNotifierProxyProviderKey2<T, T2, R extends ChangeNotifier>
-    extends ProviderKey<R> {
+    extends ProviderType<R> {
   const ChangeNotifierProxyProviderKey2.build(
-      {@required ProviderKey<T> dependKey1,
-      @required ProviderKey<T2> dependKey2,
+      {@required ProviderType<T> dependKey1,
+      @required ProviderType<T2> dependKey2,
       @required ProviderType<R> selfType});
 
   ChangeNotifierProxyProvider2<T, T2, R> provider(
@@ -351,11 +351,11 @@ class ChangeNotifierProxyProviderKey2<T, T2, R extends ChangeNotifier>
 }
 
 class ChangeNotifierProxyProviderKey3<T, T2, T3, R extends ChangeNotifier>
-    extends ProviderKey<R> {
+    extends ProviderType<R> {
   const ChangeNotifierProxyProviderKey3.build(
-      {@required ProviderKey<T> dependKey1,
-      @required ProviderKey<T2> dependKey2,
-      @required ProviderKey<T3> dependKey3,
+      {@required ProviderType<T> dependKey1,
+      @required ProviderType<T2> dependKey2,
+      @required ProviderType<T3> dependKey3,
       @required ProviderType<R> selfType});
 
   ChangeNotifierProxyProvider3<T, T2, T3, R> provider(
@@ -378,12 +378,12 @@ class ChangeNotifierProxyProviderKey3<T, T2, T3, R extends ChangeNotifier>
 }
 
 class ChangeNotifierProxyProviderKey4<T, T2, T3, T4, R extends ChangeNotifier>
-    extends ProviderKey<R> {
+    extends ProviderType<R> {
   const ChangeNotifierProxyProviderKey4.build(
-      {@required ProviderKey<T> dependKey1,
-      @required ProviderKey<T2> dependKey2,
-      @required ProviderKey<T3> dependKey3,
-      @required ProviderKey<T4> dependKey4,
+      {@required ProviderType<T> dependKey1,
+      @required ProviderType<T2> dependKey2,
+      @required ProviderType<T3> dependKey3,
+      @required ProviderType<T4> dependKey4,
       @required ProviderType<R> selfType});
 
   ChangeNotifierProxyProvider4<T, T2, T3, T4, R> provider(
@@ -406,13 +406,13 @@ class ChangeNotifierProxyProviderKey4<T, T2, T3, T4, R extends ChangeNotifier>
 }
 
 class ChangeNotifierProxyProviderKey5<T, T2, T3, T4, T5,
-    R extends ChangeNotifier> extends ProviderKey<R> {
+    R extends ChangeNotifier> extends ProviderType<R> {
   const ChangeNotifierProxyProviderKey5.build(
-      {@required ProviderKey<T> dependKey1,
-      @required ProviderKey<T2> dependKey2,
-      @required ProviderKey<T3> dependKey3,
-      @required ProviderKey<T4> dependKey4,
-      @required ProviderKey<T4> dependKey5,
+      {@required ProviderType<T> dependKey1,
+      @required ProviderType<T2> dependKey2,
+      @required ProviderType<T3> dependKey3,
+      @required ProviderType<T4> dependKey4,
+      @required ProviderType<T4> dependKey5,
       @required ProviderType<R> selfType});
 
   ChangeNotifierProxyProvider5<T, T2, T3, T4, T5, R> provider(

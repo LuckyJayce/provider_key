@@ -3,10 +3,6 @@ import 'package:provider/provider.dart';
 
 class ProviderType<T> {
   const ProviderType();
-}
-
-abstract class ProviderKey<T> extends ProviderType<T> {
-  const ProviderKey();
 
   Consumer<T> consumer(
     ConsumerBuilder<T> builder, {
@@ -44,8 +40,42 @@ abstract class ProviderKey<T> extends ProviderType<T> {
   }
 }
 
+class InheritedProviderKey<T> extends ProviderType<T> {
+  const InheritedProviderKey();
+
+  InheritedProvider<T> provider(
+    Create<T> create, {
+    Key key,
+    T Function(BuildContext context, T value) update,
+    UpdateShouldNotify<T> updateShouldNotify,
+    void Function(T value) debugCheckInvalidValueType,
+    StartListening<T> startListening,
+    Dispose<T> dispose,
+    TransitionBuilder builder,
+    bool lazy,
+    Widget child,
+  }) {
+    return InheritedProvider<T>(
+      key: key,
+      create: create,
+      update: update,
+      updateShouldNotify: updateShouldNotify,
+      debugCheckInvalidValueType: debugCheckInvalidValueType,
+      startListening: startListening,
+      dispose: dispose,
+      builder: builder,
+      lazy: lazy,
+      child: child,
+    );
+  }
+}
+
+class ProviderKey<T> extends InheritedProviderKey<T> {
+  const ProviderKey();
+}
+
 class ProviderKey2<T1, T2> {
-  const ProviderKey2.build(ProviderKey<T1> key1, ProviderKey<T2> key2);
+  const ProviderKey2.build(ProviderType<T1> key1, ProviderType<T2> key2);
 
   Consumer2<T1, T2> consumer(
     Widget Function(BuildContext context, T1 value1, T2 value2, Widget child)
@@ -79,7 +109,7 @@ class ProviderKey2<T1, T2> {
 
 class ProviderKey3<T1, T2, T3> {
   const ProviderKey3.build(
-      ProviderKey<T1> key1, ProviderKey<T2> key2, ProviderKey<T3> key3);
+      ProviderType<T1> key1, ProviderType<T2> key2, ProviderType<T3> key3);
 
   Consumer3<T1, T2, T3> consumer(
     Widget Function(
@@ -113,8 +143,8 @@ class ProviderKey3<T1, T2, T3> {
 }
 
 class ProviderKey4<T1, T2, T3, T4> {
-  const ProviderKey4.build(ProviderKey<T1> key1, ProviderKey<T2> key2,
-      ProviderKey<T3> key3, ProviderKey<T4> key4);
+  const ProviderKey4.build(ProviderType<T1> key1, ProviderType<T2> key2,
+      ProviderType<T3> key3, ProviderType<T4> key4);
 
   Consumer4<T1, T2, T3, T4> consumer(
     Widget Function(BuildContext context, T1 value1, T2 value2, T3 value3,
@@ -148,8 +178,8 @@ class ProviderKey4<T1, T2, T3, T4> {
 }
 
 class ProviderKey5<T1, T2, T3, T4, T5> {
-  const ProviderKey5.build(ProviderKey<T1> key1, ProviderKey<T2> key2,
-      ProviderKey<T3> key3, ProviderKey<T4> key4, ProviderKey<T4> key5);
+  const ProviderKey5.build(ProviderType<T1> key1, ProviderType<T2> key2,
+      ProviderType<T3> key3, ProviderType<T4> key4, ProviderType<T4> key5);
 
   Consumer5<T1, T2, T3, T4, T5> consumer(
     Widget Function(BuildContext context, T1 value1, T2 value2, T3 value3,
@@ -182,7 +212,7 @@ class ProviderKey5<T1, T2, T3, T4, T5> {
   }
 }
 
-class FutureProviderKey<T> extends ProviderKey<T> {
+class FutureProviderKey<T> extends ProviderType<T> {
   const FutureProviderKey();
 
   FutureProvider<T> provider(
@@ -208,7 +238,7 @@ class FutureProviderKey<T> extends ProviderKey<T> {
   }
 }
 
-class StreamProviderKey<T> extends ProviderKey<T> {
+class StreamProviderKey<T> extends ProviderType<T> {
   const StreamProviderKey();
 
   StreamProvider<T> provider(
@@ -234,7 +264,7 @@ class StreamProviderKey<T> extends ProviderKey<T> {
   }
 }
 
-class ListenableProviderKey<T extends Listenable> extends ProviderKey<T> {
+class ListenableProviderKey<T extends Listenable> extends ProviderType<T> {
   const ListenableProviderKey();
 
   ListenableProvider<T> provider(
@@ -257,7 +287,7 @@ class ListenableProviderKey<T extends Listenable> extends ProviderKey<T> {
 }
 
 class ChangeNotifierProviderKey<T extends ChangeNotifier>
-    extends ProviderKey<T> {
+    extends ProviderType<T> {
   const ChangeNotifierProviderKey();
 
   ChangeNotifierProvider<T> provider(
@@ -279,33 +309,3 @@ class ChangeNotifierProviderKey<T extends ChangeNotifier>
 
 typedef ConsumerBuilder<T> = Widget Function(
     BuildContext context, T value, Widget child);
-
-class InheritedProviderKey<T> extends ProviderKey<T> {
-  const InheritedProviderKey();
-
-  InheritedProvider<T> provider(
-    Create<T> create, {
-    Key key,
-    T Function(BuildContext context, T value) update,
-    UpdateShouldNotify<T> updateShouldNotify,
-    void Function(T value) debugCheckInvalidValueType,
-    StartListening<T> startListening,
-    Dispose<T> dispose,
-    TransitionBuilder builder,
-    bool lazy,
-    Widget child,
-  }) {
-    return InheritedProvider<T>(
-      key: key,
-      create: create,
-      update: update,
-      updateShouldNotify: updateShouldNotify,
-      debugCheckInvalidValueType: debugCheckInvalidValueType,
-      startListening: startListening,
-      dispose: dispose,
-      builder: builder,
-      lazy: lazy,
-      child: child,
-    );
-  }
-}
