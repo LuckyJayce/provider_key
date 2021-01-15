@@ -38,6 +38,10 @@ class ProviderType<T> {
   T watch(BuildContext context) {
     return Provider.of<T>(context, listen: true);
   }
+
+  R select<R>(BuildContext context, R Function(T value) selector) {
+    return context.select<T, R>(selector);
+  }
 }
 
 class InheritedProviderKey<T> extends ProviderType<T> {
