@@ -72,6 +72,26 @@ class InheritedProviderKey<T> extends ProviderType<T> {
       child: child,
     );
   }
+
+  InheritedProvider<T> providerValue({
+    Key key,
+    @required T value,
+    UpdateShouldNotify<T> updateShouldNotify,
+    StartListening<T> startListening,
+    bool lazy,
+    TransitionBuilder builder,
+    Widget child,
+  }) {
+    return InheritedProvider<T>.value(
+      key: key,
+      value: value,
+      updateShouldNotify: updateShouldNotify,
+      startListening: startListening,
+      builder: builder,
+      lazy: lazy,
+      child: child,
+    );
+  }
 }
 
 class ProviderKey<T> extends InheritedProviderKey<T> {
@@ -240,6 +260,26 @@ class FutureProviderKey<T> extends ProviderType<T> {
       child: child,
     );
   }
+
+  FutureProvider<T> providerValue({
+    Key key,
+    @required Future<T> value,
+    T initialData,
+    ErrorBuilder<T> catchError,
+    UpdateShouldNotify<T> updateShouldNotify,
+    TransitionBuilder builder,
+    Widget child,
+  }) {
+    return FutureProvider<T>.value(
+      key: key,
+      value: value,
+      initialData: initialData,
+      catchError: catchError,
+      updateShouldNotify: updateShouldNotify,
+      builder: builder,
+      child: child,
+    );
+  }
 }
 
 class StreamProviderKey<T> extends ProviderType<T> {
@@ -258,6 +298,28 @@ class StreamProviderKey<T> extends ProviderType<T> {
     return StreamProvider<T>(
       key: key,
       create: create,
+      initialData: initialData,
+      catchError: catchError,
+      updateShouldNotify: updateShouldNotify,
+      lazy: lazy,
+      builder: builder,
+      child: child,
+    );
+  }
+
+  StreamProvider<T> providerValue({
+    Key key,
+    @required Stream<T> value,
+    T initialData,
+    ErrorBuilder<T> catchError,
+    UpdateShouldNotify<T> updateShouldNotify,
+    bool lazy,
+    TransitionBuilder builder,
+    Widget child,
+  }) {
+    return StreamProvider<T>.value(
+      key: key,
+      value: value,
       initialData: initialData,
       catchError: catchError,
       updateShouldNotify: updateShouldNotify,
@@ -288,6 +350,22 @@ class ListenableProviderKey<T extends Listenable> extends ProviderType<T> {
       child: child,
     );
   }
+
+  ListenableProvider<T> providerValue({
+    Key key,
+    @required T value,
+    UpdateShouldNotify<T> updateShouldNotify,
+    TransitionBuilder builder,
+    Widget child,
+  }) {
+    return ListenableProvider<T>.value(
+      key: key,
+      value: value,
+      updateShouldNotify: updateShouldNotify,
+      builder: builder,
+      child: child,
+    );
+  }
 }
 
 class ChangeNotifierProviderKey<T extends ChangeNotifier>
@@ -305,6 +383,20 @@ class ChangeNotifierProviderKey<T extends ChangeNotifier>
       key: key,
       create: create,
       lazy: lazy,
+      builder: builder,
+      child: child,
+    );
+  }
+
+  ChangeNotifierProvider<T> providerValue({
+    Key key,
+    @required T value,
+    TransitionBuilder builder,
+    Widget child,
+  }) {
+    return ChangeNotifierProvider<T>.value(
+      key: key,
+      value: value,
       builder: builder,
       child: child,
     );
