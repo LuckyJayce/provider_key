@@ -18,7 +18,7 @@ class DemosPage extends StatelessWidget {
           return MaterialButton(
             onPressed: () {
               Navigator.of(context)
-                  .push(new MaterialPageRoute(builder: routes[paths[index]]));
+                  .push(new MaterialPageRoute(builder: routes[paths[index]]!));
             },
             child: Text(paths[index].replaceAll("/", "")),
           );

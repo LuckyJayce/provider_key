@@ -18,10 +18,14 @@ class CalculatorPage extends StatelessWidget {
       providers: [
         _number1Key.provider((context) => Number1Notifier()),
         _number2Key.provider((context) => Number2Notifier()),
-        _result2Key.provider(
-            (context) => ResultNumberNotifier(),
-            (context, number1, number2, previous) =>
-                previous..setNumbers(number1.number, number2.number)),
+        _result2Key.provider((context) => ResultNumberNotifier(),
+            (context, number1, number2, previous) {
+          if (previous == null) {
+            return ResultNumberNotifier()
+              ..setNumbers(number1.number, number2.number);
+          }
+          return previous..setNumbers(number1.number, number2.number);
+        }),
       ],
       child: PageContent(),
     );
@@ -70,7 +74,7 @@ class PageContent extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: Theme.of(context)
                       .textTheme
-                      .headline6
+                      .headline6!
                       .copyWith(color: Colors.orange),
                 );
               }),
@@ -83,7 +87,7 @@ class PageContent extends StatelessWidget {
                   'result:${value1.number + value2.number}',
                   style: Theme.of(context)
                       .textTheme
-                      .headline6
+                      .headline6!
                       .copyWith(color: Colors.orange),
                 );
               },
@@ -139,7 +143,7 @@ class Number1Notifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  get number => _number;
+  int get number => _number;
 }
 
 class Number2Notifier extends ChangeNotifier {
@@ -150,12 +154,12 @@ class Number2Notifier extends ChangeNotifier {
     notifyListeners();
   }
 
-  get number => _number;
+  int get number => _number;
 }
 
 class ResultNumberNotifier with ChangeNotifier {
   int result = 0;
-  DateTime changeTime;
+  DateTime changeTime = DateTime.now();
 
   void setNumbers(int number, int number2) {
     this.result = number + number2;
