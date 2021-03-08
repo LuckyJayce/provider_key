@@ -6,8 +6,8 @@ class ProviderType<T> {
 
   Consumer<T> consumer(
     ConsumerBuilder<T> builder, {
-    Key key,
-    Widget child,
+    Key? key,
+    Widget? child,
   }) {
     return Consumer(
       builder: builder,
@@ -17,11 +17,11 @@ class ProviderType<T> {
   }
 
   Selector<T, S> selector<S>({
-    Key key,
-    @required ValueWidgetBuilder<S> builder,
-    @required S Function(BuildContext context, T value) selector,
-    ShouldRebuild<S> shouldRebuild,
-    Widget child,
+    Key? key,
+    required ValueWidgetBuilder<S> builder,
+    required S Function(BuildContext context, T value) selector,
+    ShouldRebuild<S>? shouldRebuild,
+    Widget? child,
   }) {
     return Selector<T, S>(
         key: key,
@@ -49,15 +49,15 @@ class InheritedProviderKey<T> extends ProviderType<T> {
 
   InheritedProvider<T> provider(
     Create<T> create, {
-    Key key,
-    T Function(BuildContext context, T value) update,
-    UpdateShouldNotify<T> updateShouldNotify,
-    void Function(T value) debugCheckInvalidValueType,
-    StartListening<T> startListening,
-    Dispose<T> dispose,
-    TransitionBuilder builder,
-    bool lazy,
-    Widget child,
+    Key? key,
+    T Function(BuildContext context, T? value)? update,
+    UpdateShouldNotify<T>? updateShouldNotify,
+    void Function(T value)? debugCheckInvalidValueType,
+    StartListening<T>? startListening,
+    Dispose<T>? dispose,
+    TransitionBuilder? builder,
+    bool? lazy,
+    Widget? child,
   }) {
     return InheritedProvider<T>(
       key: key,
@@ -74,13 +74,13 @@ class InheritedProviderKey<T> extends ProviderType<T> {
   }
 
   InheritedProvider<T> providerValue({
-    Key key,
-    @required T value,
-    UpdateShouldNotify<T> updateShouldNotify,
-    StartListening<T> startListening,
-    bool lazy,
-    TransitionBuilder builder,
-    Widget child,
+    Key? key,
+    required T value,
+    UpdateShouldNotify<T>? updateShouldNotify,
+    StartListening<T>? startListening,
+    bool? lazy,
+    TransitionBuilder? builder,
+    Widget? child,
   }) {
     return InheritedProvider<T>.value(
       key: key,
@@ -102,10 +102,10 @@ class ProviderKey2<T1, T2> {
   const ProviderKey2.build(ProviderType<T1> key1, ProviderType<T2> key2);
 
   Consumer2<T1, T2> consumer(
-    Widget Function(BuildContext context, T1 value1, T2 value2, Widget child)
+    Widget Function(BuildContext context, T1 value1, T2 value2, Widget? child)
         builder, {
-    Key key,
-    Widget child,
+    Key? key,
+    Widget? child,
   }) {
     return Consumer2<T1, T2>(
       key: key,
@@ -115,11 +115,11 @@ class ProviderKey2<T1, T2> {
   }
 
   Selector2<T1, T2, S> selector<S>({
-    Key key,
-    @required ValueWidgetBuilder<S> builder,
-    @required S Function(BuildContext, T1, T2) selector,
-    ShouldRebuild<S> shouldRebuild,
-    Widget child,
+    Key? key,
+    required ValueWidgetBuilder<S> builder,
+    required S Function(BuildContext, T1, T2) selector,
+    ShouldRebuild<S>? shouldRebuild,
+    Widget? child,
   }) {
     return Selector2<T1, T2, S>(
       key: key,
@@ -136,11 +136,11 @@ class ProviderKey3<T1, T2, T3> {
       ProviderType<T1> key1, ProviderType<T2> key2, ProviderType<T3> key3);
 
   Consumer3<T1, T2, T3> consumer(
-    Widget Function(
-            BuildContext context, T1 value1, T2 value2, T3 value3, Widget child)
+    Widget Function(BuildContext context, T1 value1, T2 value2, T3 value3,
+            Widget? child)
         builder, {
-    Key key,
-    Widget child,
+    Key? key,
+    Widget? child,
   }) {
     return Consumer3<T1, T2, T3>(
       key: key,
@@ -150,11 +150,11 @@ class ProviderKey3<T1, T2, T3> {
   }
 
   Selector3<T1, T2, T3, S> selector<S>({
-    Key key,
-    @required ValueWidgetBuilder<S> builder,
-    @required S Function(BuildContext, T1, T2, T3) selector,
-    ShouldRebuild<S> shouldRebuild,
-    Widget child,
+    Key? key,
+    required ValueWidgetBuilder<S> builder,
+    required S Function(BuildContext, T1, T2, T3) selector,
+    ShouldRebuild<S>? shouldRebuild,
+    Widget? child,
   }) {
     return Selector3<T1, T2, T3, S>(
       key: key,
@@ -172,10 +172,10 @@ class ProviderKey4<T1, T2, T3, T4> {
 
   Consumer4<T1, T2, T3, T4> consumer(
     Widget Function(BuildContext context, T1 value1, T2 value2, T3 value3,
-            T4 value4, Widget child)
+            T4 value4, Widget? child)
         builder, {
-    Key key,
-    Widget child,
+    Key? key,
+    Widget? child,
   }) {
     return Consumer4<T1, T2, T3, T4>(
       key: key,
@@ -185,11 +185,11 @@ class ProviderKey4<T1, T2, T3, T4> {
   }
 
   Selector4<T1, T2, T3, T4, S> selector<S>({
-    Key key,
-    @required ValueWidgetBuilder<S> builder,
-    @required S Function(BuildContext, T1, T2, T3, T4) selector,
-    ShouldRebuild<S> shouldRebuild,
-    Widget child,
+    Key? key,
+    required ValueWidgetBuilder<S> builder,
+    required S Function(BuildContext, T1, T2, T3, T4) selector,
+    ShouldRebuild<S>? shouldRebuild,
+    Widget? child,
   }) {
     return Selector4<T1, T2, T3, T4, S>(
       key: key,
@@ -207,10 +207,10 @@ class ProviderKey5<T1, T2, T3, T4, T5> {
 
   Consumer5<T1, T2, T3, T4, T5> consumer(
     Widget Function(BuildContext context, T1 value1, T2 value2, T3 value3,
-            T4 value4, T5 value5, Widget child)
+            T4 value4, T5 value5, Widget? child)
         builder, {
-    Key key,
-    Widget child,
+    Key? key,
+    Widget? child,
   }) {
     return Consumer5<T1, T2, T3, T4, T5>(
       key: key,
@@ -220,11 +220,11 @@ class ProviderKey5<T1, T2, T3, T4, T5> {
   }
 
   Selector5<T1, T2, T3, T4, T5, S> selector<S>({
-    Key key,
-    @required ValueWidgetBuilder<S> builder,
-    @required S Function(BuildContext, T1, T2, T3, T4, T5) selector,
-    ShouldRebuild<S> shouldRebuild,
-    Widget child,
+    Key? key,
+    required ValueWidgetBuilder<S> builder,
+    required S Function(BuildContext, T1, T2, T3, T4, T5) selector,
+    ShouldRebuild<S>? shouldRebuild,
+    Widget? child,
   }) {
     return Selector5<T1, T2, T3, T4, T5, S>(
       key: key,
@@ -241,13 +241,13 @@ class FutureProviderKey<T> extends ProviderType<T> {
 
   FutureProvider<T> provider(
     Create<Future<T>> create, {
-    Key key,
-    T initialData,
-    ErrorBuilder<T> catchError,
-    UpdateShouldNotify<T> updateShouldNotify,
-    bool lazy,
-    TransitionBuilder builder,
-    Widget child,
+    Key? key,
+    required T initialData,
+    ErrorBuilder<T>? catchError,
+    UpdateShouldNotify<T>? updateShouldNotify,
+    bool? lazy,
+    TransitionBuilder? builder,
+    Widget? child,
   }) {
     return FutureProvider<T>(
       key: key,
@@ -262,13 +262,13 @@ class FutureProviderKey<T> extends ProviderType<T> {
   }
 
   FutureProvider<T> providerValue({
-    Key key,
-    @required Future<T> value,
-    T initialData,
-    ErrorBuilder<T> catchError,
-    UpdateShouldNotify<T> updateShouldNotify,
-    TransitionBuilder builder,
-    Widget child,
+    Key? key,
+    required Future<T> value,
+    required T initialData,
+    ErrorBuilder<T>? catchError,
+    UpdateShouldNotify<T>? updateShouldNotify,
+    TransitionBuilder? builder,
+    Widget? child,
   }) {
     return FutureProvider<T>.value(
       key: key,
@@ -287,13 +287,13 @@ class StreamProviderKey<T> extends ProviderType<T> {
 
   StreamProvider<T> provider(
     Create<Stream<T>> create, {
-    Key key,
-    T initialData,
-    ErrorBuilder<T> catchError,
-    UpdateShouldNotify<T> updateShouldNotify,
-    bool lazy,
-    TransitionBuilder builder,
-    Widget child,
+    Key? key,
+    required T initialData,
+    ErrorBuilder<T>? catchError,
+    UpdateShouldNotify<T>? updateShouldNotify,
+    bool? lazy,
+    TransitionBuilder? builder,
+    Widget? child,
   }) {
     return StreamProvider<T>(
       key: key,
@@ -308,14 +308,14 @@ class StreamProviderKey<T> extends ProviderType<T> {
   }
 
   StreamProvider<T> providerValue({
-    Key key,
-    @required Stream<T> value,
-    T initialData,
-    ErrorBuilder<T> catchError,
-    UpdateShouldNotify<T> updateShouldNotify,
-    bool lazy,
-    TransitionBuilder builder,
-    Widget child,
+    Key? key,
+    required Stream<T> value,
+    required T initialData,
+    ErrorBuilder<T>? catchError,
+    UpdateShouldNotify<T>? updateShouldNotify,
+    bool? lazy,
+    TransitionBuilder? builder,
+    Widget? child,
   }) {
     return StreamProvider<T>.value(
       key: key,
@@ -335,11 +335,11 @@ class ListenableProviderKey<T extends Listenable> extends ProviderType<T> {
 
   ListenableProvider<T> provider(
     Create<T> create, {
-    Key key,
-    Dispose<T> dispose,
-    bool lazy,
-    TransitionBuilder builder,
-    Widget child,
+    Key? key,
+    Dispose<T>? dispose,
+    bool? lazy,
+    TransitionBuilder? builder,
+    Widget? child,
   }) {
     return ListenableProvider<T>(
       key: key,
@@ -352,11 +352,11 @@ class ListenableProviderKey<T extends Listenable> extends ProviderType<T> {
   }
 
   ListenableProvider<T> providerValue({
-    Key key,
-    @required T value,
-    UpdateShouldNotify<T> updateShouldNotify,
-    TransitionBuilder builder,
-    Widget child,
+    Key? key,
+    required T value,
+    UpdateShouldNotify<T>? updateShouldNotify,
+    TransitionBuilder? builder,
+    Widget? child,
   }) {
     return ListenableProvider<T>.value(
       key: key,
@@ -374,10 +374,10 @@ class ChangeNotifierProviderKey<T extends ChangeNotifier>
 
   ChangeNotifierProvider<T> provider(
     Create<T> create, {
-    Key key,
-    bool lazy,
-    TransitionBuilder builder,
-    Widget child,
+    Key? key,
+    bool? lazy,
+    TransitionBuilder? builder,
+    Widget? child,
   }) {
     return ChangeNotifierProvider<T>(
       key: key,
@@ -389,10 +389,10 @@ class ChangeNotifierProviderKey<T extends ChangeNotifier>
   }
 
   ChangeNotifierProvider<T> providerValue({
-    Key key,
-    @required T value,
-    TransitionBuilder builder,
-    Widget child,
+    Key? key,
+    required T value,
+    TransitionBuilder? builder,
+    Widget? child,
   }) {
     return ChangeNotifierProvider<T>.value(
       key: key,
@@ -404,4 +404,4 @@ class ChangeNotifierProviderKey<T extends ChangeNotifier>
 }
 
 typedef ConsumerBuilder<T> = Widget Function(
-    BuildContext context, T value, Widget child);
+    BuildContext context, T value, Widget? child);
