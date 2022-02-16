@@ -1,12 +1,11 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_key/provider_key.dart';
 
-const _number1Key = ChangeNotifierProviderKey<Number1Notifier>();
-const _number2Key = ChangeNotifierProviderKey<Number2Notifier>();
-const _result2Key = ChangeNotifierProxyProviderKey2.build(
+final _number1Key = ChangeNotifierProviderKey<Number1Notifier>();
+final _number2Key = ChangeNotifierProviderKey<Number2Notifier>();
+final _result2Key = ChangeNotifierProxyProviderKey2.build(
     dependKey1: _number1Key,
     dependKey2: _number2Key,
     selfType: ProviderType<ResultNumberNotifier>());

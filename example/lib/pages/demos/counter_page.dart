@@ -1,9 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:provider_key/provider_key.dart';
 
-const _counterKey = ChangeNotifierProviderKey<Counter>();
+final _counterKey = ChangeNotifierProviderKey<Counter>();
 
 class CounterPage extends StatelessWidget {
   @override
