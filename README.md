@@ -21,7 +21,7 @@
 
 ```
 //--this difine-------
-const _counterKey = ChangeNotifierProviderKey<Counter>();
+final _counterKey = ChangeNotifierProviderKey<Counter>();
 
 class CounterPage extends StatelessWidget {
   @override
@@ -152,8 +152,8 @@ Counter counter = context.watch<Counter>();
 Consumer2
 
 ```
-const _number1Key = ChangeNotifierProviderKey<Number1Notifier>();
-const _number2Key = ChangeNotifierProviderKey<Number2Notifier>();
+final _number1Key = ChangeNotifierProviderKey<Number1Notifier>();
+final _number2Key = ChangeNotifierProviderKey<Number2Notifier>();
 
 //Consumer2
 ProviderKey2.build(_number1Key, _number2Key).consumer(
@@ -172,9 +172,9 @@ ProviderKey2.build(_number1Key, _number2Key).consumer(
 Consumer3
 
 ```
-const _number1Key = ChangeNotifierProviderKey<Number1Notifier>();
-const _number2Key = ChangeNotifierProviderKey<Number2Notifier>();
-const _number3Key = ChangeNotifierProviderKey<Number3Notifier>();
+final _number1Key = ChangeNotifierProviderKey<Number1Notifier>();
+final _number2Key = ChangeNotifierProviderKey<Number2Notifier>();
+final _number3Key = ChangeNotifierProviderKey<Number3Notifier>();
 
 ProviderKey3.build(_number1Key, _number2Key, _number3Key).consumer(
       (context, value1, value2, value3, child) {
@@ -270,9 +270,9 @@ class ResultNumberNotifier with ChangeNotifier {
 定义常量ProviderKey
 
 ```
-const _number1Key = ChangeNotifierProviderKey<Number1Notifier>();
-const _number2Key = ChangeNotifierProviderKey<Number2Notifier>();
-const _result2Key = ChangeNotifierProxyProviderKey2.build(
+final _number1Key = ChangeNotifierProviderKey<Number1Notifier>();
+final _number2Key = ChangeNotifierProviderKey<Number2Notifier>();
+final _result2Key = ChangeNotifierProxyProviderKey2.build(
     dependKey1: _number1Key,
     dependKey2: _number2Key,
     selfType: ProviderType<ResultNumberNotifier>());
