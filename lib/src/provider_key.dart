@@ -2,7 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class ProviderType<T> {
-  const ProviderType();
+  ProviderType();
 
   Consumer<T> consumer(
     ConsumerBuilder<T> builder, {
@@ -45,7 +45,7 @@ class ProviderType<T> {
 }
 
 class InheritedProviderKey<T> extends ProviderType<T> {
-  const InheritedProviderKey();
+  InheritedProviderKey();
 
   InheritedProvider<T> provider(
     Create<T> create, {
@@ -95,11 +95,11 @@ class InheritedProviderKey<T> extends ProviderType<T> {
 }
 
 class ProviderKey<T> extends InheritedProviderKey<T> {
-  const ProviderKey();
+  ProviderKey();
 }
 
 class ProviderKey2<T1, T2> {
-  const ProviderKey2.build(ProviderType<T1> key1, ProviderType<T2> key2);
+  ProviderKey2.build(ProviderType<T1> key1, ProviderType<T2> key2);
 
   Consumer2<T1, T2> consumer(
     Widget Function(BuildContext context, T1 value1, T2 value2, Widget? child)
@@ -132,7 +132,7 @@ class ProviderKey2<T1, T2> {
 }
 
 class ProviderKey3<T1, T2, T3> {
-  const ProviderKey3.build(
+  ProviderKey3.build(
       ProviderType<T1> key1, ProviderType<T2> key2, ProviderType<T3> key3);
 
   Consumer3<T1, T2, T3> consumer(
@@ -167,7 +167,7 @@ class ProviderKey3<T1, T2, T3> {
 }
 
 class ProviderKey4<T1, T2, T3, T4> {
-  const ProviderKey4.build(ProviderType<T1> key1, ProviderType<T2> key2,
+  ProviderKey4.build(ProviderType<T1> key1, ProviderType<T2> key2,
       ProviderType<T3> key3, ProviderType<T4> key4);
 
   Consumer4<T1, T2, T3, T4> consumer(
@@ -202,7 +202,7 @@ class ProviderKey4<T1, T2, T3, T4> {
 }
 
 class ProviderKey5<T1, T2, T3, T4, T5> {
-  const ProviderKey5.build(ProviderType<T1> key1, ProviderType<T2> key2,
+  ProviderKey5.build(ProviderType<T1> key1, ProviderType<T2> key2,
       ProviderType<T3> key3, ProviderType<T4> key4, ProviderType<T4> key5);
 
   Consumer5<T1, T2, T3, T4, T5> consumer(
@@ -237,7 +237,7 @@ class ProviderKey5<T1, T2, T3, T4, T5> {
 }
 
 class FutureProviderKey<T> extends ProviderType<T> {
-  const FutureProviderKey();
+  FutureProviderKey();
 
   FutureProvider<T> provider(
     Create<Future<T>> create, {
@@ -283,7 +283,7 @@ class FutureProviderKey<T> extends ProviderType<T> {
 }
 
 class StreamProviderKey<T> extends ProviderType<T> {
-  const StreamProviderKey();
+  StreamProviderKey();
 
   StreamProvider<T> provider(
     Create<Stream<T>> create, {
@@ -331,7 +331,7 @@ class StreamProviderKey<T> extends ProviderType<T> {
 }
 
 class ListenableProviderKey<T extends Listenable> extends ProviderType<T> {
-  const ListenableProviderKey();
+  ListenableProviderKey();
 
   ListenableProvider<T> provider(
     Create<T> create, {
@@ -370,7 +370,7 @@ class ListenableProviderKey<T extends Listenable> extends ProviderType<T> {
 
 class ChangeNotifierProviderKey<T extends ChangeNotifier>
     extends ProviderType<T> {
-  const ChangeNotifierProviderKey();
+  ChangeNotifierProviderKey();
 
   ChangeNotifierProvider<T> provider(
     Create<T> create, {
