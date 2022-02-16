@@ -2,8 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 class ProviderType<T> {
-  ProviderType();
-
   Consumer<T> consumer(
     ConsumerBuilder<T> builder, {
     Key? key,
@@ -45,8 +43,6 @@ class ProviderType<T> {
 }
 
 class InheritedProviderKey<T> extends ProviderType<T> {
-  InheritedProviderKey();
-
   InheritedProvider<T> provider(
     Create<T> create, {
     Key? key,
@@ -94,9 +90,7 @@ class InheritedProviderKey<T> extends ProviderType<T> {
   }
 }
 
-class ProviderKey<T> extends InheritedProviderKey<T> {
-  ProviderKey();
-}
+class ProviderKey<T> extends InheritedProviderKey<T> {}
 
 class ProviderKey2<T1, T2> {
   ProviderKey2.build(ProviderType<T1> key1, ProviderType<T2> key2);
@@ -237,8 +231,6 @@ class ProviderKey5<T1, T2, T3, T4, T5> {
 }
 
 class FutureProviderKey<T> extends ProviderType<T> {
-  FutureProviderKey();
-
   FutureProvider<T> provider(
     Create<Future<T>> create, {
     Key? key,
@@ -283,8 +275,6 @@ class FutureProviderKey<T> extends ProviderType<T> {
 }
 
 class StreamProviderKey<T> extends ProviderType<T> {
-  StreamProviderKey();
-
   StreamProvider<T> provider(
     Create<Stream<T>> create, {
     Key? key,
@@ -331,8 +321,6 @@ class StreamProviderKey<T> extends ProviderType<T> {
 }
 
 class ListenableProviderKey<T extends Listenable> extends ProviderType<T> {
-  ListenableProviderKey();
-
   ListenableProvider<T> provider(
     Create<T> create, {
     Key? key,
@@ -370,8 +358,6 @@ class ListenableProviderKey<T extends Listenable> extends ProviderType<T> {
 
 class ChangeNotifierProviderKey<T extends ChangeNotifier>
     extends ProviderType<T> {
-  ChangeNotifierProviderKey();
-
   ChangeNotifierProvider<T> provider(
     Create<T> create, {
     Key? key,
