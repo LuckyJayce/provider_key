@@ -77,8 +77,8 @@ class Counter with ChangeNotifier {
 }
 ```
 
-## 1.声明常量ProviderKey  
-	const _counterKey = ChangeNotifierProviderKey<Counter>();
+## 1.声明ProviderKey  
+	final _counterKey = ChangeNotifierProviderKey<Counter>();
 
 ## 2.注册Provider	
 	MultiProvider(
@@ -267,7 +267,7 @@ class ResultNumberNotifier with ChangeNotifier {
 }
 ```
 
-定义常量ProviderKey
+定义ProviderKey
 
 ```
 final _number1Key = ChangeNotifierProviderKey<Number1Notifier>();
